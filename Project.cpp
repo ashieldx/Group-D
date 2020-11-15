@@ -252,7 +252,9 @@ void order()
 void menu(){	
 	while(1){
 		cls();
+		puts("Welcome to Opercoocked");
 		printf("Total profit: $%d\n", profit);
+		puts("=============================");
 		puts("[1.] Add Dessert or Beverage ");
 		puts("[2.] View Cooking Process ");
 		puts("[3.] View Order History ");
