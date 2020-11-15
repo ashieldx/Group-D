@@ -23,6 +23,13 @@ struct list2{
     int price;
     char size;
     int time;
+	int day;
+	int month;
+	int year;
+	int hours;
+	int minute;
+	int second;
+	char time_stat[3];
 };
 struct list2 orderFood[500];
 
