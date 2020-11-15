@@ -16,13 +16,14 @@ void process(){
 
         int temp = 1;
         printf("| No  | Type     | Name               | Price  | Time Left |\n");
-        puts("----------------------------------------------------------------");
+        puts("------------------------------------------------------------");
         for(int i = 0 ; i < ctrorder ; i++){
             if(orderFood[i].time <= 0){
                 continue;
             }
             orderFood[i].time -= 10;
             if(orderFood[i].time <= 0){
+                profit += orderFood[i].price;
                 currentorder--;
             }
         }
@@ -31,11 +32,14 @@ void process(){
                 continue;
             }
             else{
-                printf("| %d | %s | %s | $%d | %d    s|\n", temp++, orderFood[i].type, orderFood[i].name, orderFood[i].price, orderFood[i].time);
+                printf("| %-3d | %-8s | %-18s | $%-5d | %-8ds |\n", temp++, orderFood[i].type, orderFood[i].name, orderFood[i].price, orderFood[i].time);
             }
         }
 
+        puts("");
 
+	    printf("Press Enter to continue.");
+        
         getchar();
     }
 
