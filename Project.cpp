@@ -7,6 +7,9 @@
 
 void menu();
 void add();
+void end();
+void sleep();
+void cls();
 
 
 int main(){
@@ -204,7 +207,7 @@ void order()
 
         strcpy(orderFood[ctrorder].name, food[menuchoice-1].name);
         orderFood[ctrorder].price = food[menuchoice-1].price;
-        strcpy(orderFood[ctrorder].topping, food[menuchoice-1].topping); // 50 39 70
+        strcpy(orderFood[ctrorder].topping, food[menuchoice-1].topping);
         orderFood[ctrorder].calories = food[menuchoice-1].calories;
         strcpy(orderFood[ctrorder].flavor, food[menuchoice-1].flavor);
         orderFood[ctrorder].size = food[menuchoice-1].size;
