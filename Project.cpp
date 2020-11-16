@@ -301,7 +301,7 @@ void order()
 void menu(){	
 	while(1){
 		cls();
-		puts("Welcome to Opercoocked");
+		puts("Welcome to Opercooked");
 		printf("Total profit: $%d\n", profit);
 		puts("=============================");
 		puts("[1.] Add Dessert or Beverage ");
