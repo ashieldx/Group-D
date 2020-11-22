@@ -1,1 +1,1 @@
-orderFood[ctrorder].price = food[menuchoice-1].price;
+ 

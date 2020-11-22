@@ -17,77 +17,85 @@ int main(){
 	menu();	
 return 0;
 }	
-
+void History(){
+	
+}
 void addDessert(){
 	cls();
+	char tempname[200];
+	int price;
+	char topping[25];
+	double cal;
 	while(1){
-		char tempname[200];
+		
 		printf("Input the name [at least 5 characters]: ");
 		scanf("%[^\n]", tempname);
 		getchar();
 		int len = strlen(tempname);
 		if(len<5){
 			continue;
-		}else{
-			strcpy(food[x].name, tempname);
+		}else
+		{
+			//strcpy(food[x].name, tempname);
 			break;
 		}
 	}
 	while(1){
-		int price;
 		printf("Input the price [10-500]: $ ");
 		scanf("%d", &price);
 		getchar();
 		if(price<10 || price > 500){
 			continue;
 		}else{
-			food[x].price = price;
+			//food[x].price = price;
 			break;
 		}
 	}
 	while(1){
-		char topping[25];
 		printf("Input the topping ['Caramel' | 'Honey' | 'Syrup'](Case Insensitive): ");
 		scanf("%[^\n]", topping);
 		getchar();
 		if(strcmp(topping,"honey") == 0 || strcmp(topping,"Honey") == 0){
-			strcpy(food[x].topping, "Honey");
+			strcpy(topping, "Honey");
 			break;
 		}else if(strcmp(topping,"caramel") == 0 || strcmp(topping,"Caramel") == 0){
-			strcpy(food[x].topping, "Caramel");
+			strcpy(topping, "Caramel");
 			break;
 		}else if(strcmp(topping,"syrup") == 0 || strcmp(topping,"Syrup") == 0){
-			strcpy(food[x].topping, "Syrup");
+			strcpy(topping, "Syrup");
 			break;
 		}else{
 			continue;
 		}
 	}
 	while(1){
-		double cal;
 		printf("Insert calories [1.00 - 99.00]: ");
 		scanf("%lf", &cal);
 		getchar();
 		if(cal < 1.00 || cal > 99.00){
 			continue;
 		}else{
-			food[x].calories = cal;
+			//food[x].calories = cal;
 			break;
 		}
 	}
-	strcpy(food[x].flavor,"-");
-	food[x].size = '-';
-	puts("\nSuccesfully added a new menu!");
-	x++;		
+	//strcpy(food[x].flavor,"-");
+	//food[x].size = '-';
+	puts("\nSuccesfully added a new menu!");	
+	pushTail1("1", tempname, topping, "-", cal, price, '-');	
+	x++;
 	char enter;
 	scanf("%c",&enter);
 	menu();
 }
 
 void addDrink(){
+	char tempname[200];
+	char flavor[25];
+	int price;
+	char size;
 	cls();
 	while(1){
-		char tempname[200];
 		printf("Input the name [at least 5 characters]: ");
 		scanf("%[^\n]", tempname);
 		getchar();
@@ -95,62 +103,60 @@ void addDrink(){
 		if(len<5){
 			continue;
 		}else{
-			strcpy(food[x].name, tempname);
+			//strcpy(food[x].name, tempname);
 			break;
 		}
 	}
 	while(1){
-		int price;
 		printf("Input the price [10-500]: $ ");
 		scanf("%d", &price);
 		getchar();
-		if(price<10 || price > 500){
+		if(price<10 || price > 500)
+		{
 			continue;
-		}else{
-			food[x].price = price;
+		}else
+		{
+			//food[x].price = price;
 			break;
 		}
 	}
 	while(1){
-		char flavor[25];
 		printf("Input the flavor ['Mint' | 'Mix Berry' | 'Cheese'](Case Sensitive): ");
 		scanf("%[^\n]", flavor);
 		getchar();
 		if(strcmp(flavor,"Mint") == 0){
-			strcpy(food[x].flavor, "Mint");
+			strcpy(flavor, "Mint");
 			break;
 		}else if(strcmp(flavor,"Mix Berry") == 0){
-			strcpy(food[x].flavor,"Mix Berry");
+			strcpy(flavor,"Mix Berry");
 			break;
 		}else if(strcmp(flavor,"Cheese") == 0){
-			strcpy(food[x].flavor,"Cheese");
+			strcpy(flavor,"Cheese");
 			break;
 		}else{
 			continue;
 		}
 	}
 	while(1){
-		char size;
 		printf("Input the size [S | M | L](Case Sensitive): ");
 		scanf("%c", &size);
 		getchar();
 		if(size == 'S'){
-			food[x].size = 'S';
+			size = 'S';
 			break;
 		}else if(size == 'M'){
-			food[x].size = 'M';
+			size = 'M';
 			break;
 		}else if(size == 'L'){
-			food[x].size = 'L';
+			size = 'L';
 			break;
 		}else{
 			continue;
 		}
 	}
-	
-	strcpy(food[x].topping, "-");
-	food[x].calories = 0;
+	double calories = 0;
 	puts("\nSuccesfully added a new menu!");
+	pushTail1("2", tempname, flavor, "-", calories , price, size);
 	x++;
 	getchar();
 	menu();
@@ -168,11 +174,11 @@ void add(){
 		getchar();
 		switch(choose){
 			case '1':
-				strcpy(food[x].type, "Dessert");
+				//strcpy(food[x].type, "Dessert");
 				addDessert();
 				break;
 			case '2':
-				strcpy(food[x].type, "Drink");
+				//strcpy(food[x].type, "Drink");
 				addDrink();
 				break;
 			default:
@@ -185,9 +191,7 @@ void history(){
 	cls();
 	printf("| No | Name        | Price     | Topping    | Callories | Flavor       | size | Order Time              |\n");
     printf("---------------------------------------------------------------------------------------------------------\n");
-    for(int i = 0;i < x;i++){
-        printf("|%-3d | %-11s | %-9d | %-10s | %-9.2lf | %-12s | %-4c | %d/%02d/%d %02d:%02d:%02d %s  |\n",i+1 ,  food[i].name, food[i].price, food[i].topping, food[i].calories, food[i].flavor, food[i].size, orderFood[i].year, orderFood[i].month, orderFood[i].day, orderFood[i].hours, orderFood[i].minute, orderFood[i].second, orderFood[i].time_stat);
-    }
+    printhistory();
 	puts("");
 
 	printf("Press Enter to continue.");
@@ -213,14 +217,12 @@ void order()
         cls();
         printf("| No | Name        | Price     | Topping    | Callories | Flavor       | size |\n");
         printf("-------------------------------------------------------------------------------\n");
-        for(int i = 0;i < x;i++)
-        {
-            printf("|%-3d | %-11s | %-9d | %-10s | %-9.2lf | %-12s | %-4c |\n",i+1 ,  food[i].name, food[i].price, food[i].topping, food[i].calories, food[i].flavor, food[i].size);
-        }
+        printorder();
         printf("Choose menu to order [1 - %d] : ", x);
         scanf("%d", &menuchoice);
 		getchar();
-
+		struct Node *result = InsertOrder(menuchoice);
+		/*
         strcpy(orderFood[ctrorder].name, food[menuchoice-1].name);
         orderFood[ctrorder].price = food[menuchoice-1].price;
         strcpy(orderFood[ctrorder].topping, food[menuchoice-1].topping);
@@ -230,7 +232,7 @@ void order()
 		strcpy(orderFood[ctrorder].type, food[menuchoice-1].type);
 		
         printf("\nSuccessfully add to order list!\n\n");
-
+		*/
     	time_t now;
 
     	time(&now);
@@ -245,55 +247,42 @@ void order()
     	month = local->tm_mon + 1;        
     	year = local->tm_year + 1900;    
 
-    
-		if (hours < 12){
-			orderFood[ctrorder].day = day;
-			orderFood[ctrorder].month = month;
-			orderFood[ctrorder].year = year;
-			orderFood[ctrorder].second = seconds;
-			orderFood[ctrorder].minute = minutes;
-			orderFood[ctrorder].hours = hours;
-			strcpy(orderFood[ctrorder].time_stat, "AM");
-		}else{ 
-			orderFood[ctrorder].day = day;
-			orderFood[ctrorder].month = month;
-			orderFood[ctrorder].year = year;
-			orderFood[ctrorder].second = seconds;
-			orderFood[ctrorder].minute = minutes;
-			orderFood[ctrorder].hours = hours - 12;
-			strcpy(orderFood[ctrorder].time_stat, "PM");
-		}
-		
-		if(food[menuchoice-1].flavor[0] == '-'){
+		int time;
+		if(result->flavor[0] == '-'){
 			int random = rand()%41 + 50;
-			if(strcmp(food[menuchoice-1].topping, "honey") == 0 || strcmp(food[menuchoice-1].topping, "Honey") == 0){
-				orderFood[ctrorder].time = random + 10;
+			if(strcmp(result->topping, "honey") == 0 || strcmp(result->topping, "Honey") == 0){
+				time = random + 10;
 			}
-			else if(strcmp(food[menuchoice-1].topping, "caramel") == 0 || strcmp(food[menuchoice-1].topping, "Caramel") == 0){
-				orderFood[ctrorder].time = random + 15;
+			else if(strcmp(result->topping, "caramel") == 0 || strcmp(result->topping, "Caramel") == 0){
+				time = random + 15;
 			}
-			else if(strcmp(food[menuchoice-1].topping, "syrup") == 0 || strcmp(food[menuchoice-1].topping, "Syrup") == 0){
-				orderFood[ctrorder].time = random + 20;
+			else if(strcmp(result->topping, "syrup") == 0 || strcmp(result->topping, "Syrup") == 0){
+				time = random + 20;
 			}
 		}
 		else{
 			int random = rand()%41 + 10;
-			if(strcmp(food[menuchoice-1].flavor, "Mint") == 0){
-				orderFood[ctrorder].time = random + 10;
+			if(strcmp(result->flavor, "Mint") == 0){
+				time = random + 10;
 			}
-			else if(strcmp(food[menuchoice-1].flavor, "Mix Berry") == 0){
-				orderFood[ctrorder].time = random + 20;
+			else if(strcmp(result->flavor, "Mix Berry") == 0){
+				time = random + 20;
 			}
-			else if(strcmp(food[menuchoice-1].topping, "Cheese") == 0){
-				orderFood[ctrorder].time = random + 30;
+			else if(strcmp(result->flavor, "Cheese") == 0){
+				time = random + 30;
 			}
 		}
 		ctrorder++;
 		currentorder++;
-
+		if (hours < 12){
+			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours, minutes, seconds, "AM");
+		}else{ 
+			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours-12, minutes, seconds, "PM");
+		}
         printf("Press Enter to continue");
         getchar();
         menu();
+		
     }
     
 }
