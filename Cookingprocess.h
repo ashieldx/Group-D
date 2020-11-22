@@ -13,7 +13,7 @@ void process(){
         return;
     }
     else{
-
+        /*
         int temp = 1;
         printf("| No  | Type     | Name               | Price  | Time Left |\n");
         puts("------------------------------------------------------------");
@@ -41,6 +41,7 @@ void process(){
 	    printf("Press Enter to continue.");
         
         getchar();
+        */
     }
 
 }
