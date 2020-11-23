@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 halo gw mau coba lagi
 Hans laptop baru mesti kasih ke gua
 halo hans
@@ -14,3 +15,18 @@ meong meong aku kucing
 
 ryne ganteng 123
 halo
+=======
+halo gw mau coba lagi
+Hans laptop baru mesti kasih ke gua
+halo hans
+Tomoya pendek 123112313123 lagis
+test 123123 pagar
+
+aku tampan 123
+ashield tampan 123
+tomoya tampan 123
+halooo
+
+meong meong
+meong meong aku kucing
+>>>>>>> Stashed changes
