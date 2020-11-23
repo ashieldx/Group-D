@@ -16,7 +16,7 @@ void history();
 
 int main(){
 	menu();	
-return 0;
+	return 0;
 }	
 void History(){
 	
@@ -83,7 +83,7 @@ void addDessert(){
 	//strcpy(food[x].flavor,"-");
 	//food[x].size = '-';
 	puts("\nSuccesfully added a new menu!");	
-	pushTail1("1", tempname, topping, "-", cal, price, '-');	
+	pushTail1("1", tempname, "-", topping, cal, price, '-');	
 	x++;
 	char enter;
 	scanf("%c",&enter);
@@ -231,9 +231,10 @@ void order()
         strcpy(orderFood[ctrorder].flavor, food[menuchoice-1].flavor);
         orderFood[ctrorder].size = food[menuchoice-1].size;
 		strcpy(orderFood[ctrorder].type, food[menuchoice-1].type);
-		
-        printf("\nSuccessfully add to order list!\n\n");
 		*/
+
+        printf("\nSuccessfully add to order list!\n\n");
+		
     	time_t now;
 
     	time(&now);
@@ -260,6 +261,7 @@ void order()
 			else if(strcmp(result->topping, "syrup") == 0 || strcmp(result->topping, "Syrup") == 0){
 				time = random + 20;
 			}
+			// printf("randtime %d %d\n", random, time);
 		}
 		else{
 			int random = rand()%41 + 10;
@@ -273,12 +275,13 @@ void order()
 				time = random + 30;
 			}
 		}
+
 		ctrorder++;
 		currentorder++;
 		if (hours < 12){
-			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours, minutes, seconds, "AM");
+			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours, minutes, seconds, "AM", time);
 		}else{ 
-			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours-12, minutes, seconds, "PM");
+			pushTail2(result->type, result->name, result->flavor, result->topping, result->calories, result->price, result->size, day, month, year, hours-12, minutes, seconds, "PM", time);
 		}
         printf("Press Enter to continue");
         getchar();
