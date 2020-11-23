@@ -13,27 +13,43 @@ void process(){
         return;
     }
     else{
-        /*
+        
         int temp = 1;
         printf("| No  | Type     | Name               | Price  | Time Left |\n");
         puts("------------------------------------------------------------");
-        for(int i = 0 ; i < ctrorder ; i++){
-            if(orderFood[i].time <= 0){
+
+        int i = 0;
+        curr2 = head2;
+        while(i < ctrorder){
+            if(curr2->time <= 0){
+                i++;
+                curr2 = curr2->next;
                 continue;
             }
-            orderFood[i].time -= 10;
-            if(orderFood[i].time <= 0){
-                profit += orderFood[i].price;
+
+            curr2->time -= 10;
+
+            if(curr2->time <= 0){
+                profit += curr2->price;
                 currentorder--;
             }
+            curr2 = curr2->next;
+            i++;
         }
-        for(int i = 0 ; i < ctrorder ; i++){
-            if(orderFood[i].time <= 0){
+
+        i = 0;
+        curr2 = head2;
+        while(i < ctrorder){
+            if(curr2->time <= 0){
+                curr2 = curr2->next;
+                i++;
                 continue;
             }
             else{
-                printf("| %-3d | %-8s | %-18s | $%-5d | %-8ds |\n", temp++, orderFood[i].type, orderFood[i].name, orderFood[i].price, orderFood[i].time);
+                printf("| %-3d | %-8s | %-18s | $%-5d | %-8ds |\n", temp++, curr2->type, curr2->name, curr2->price, curr2->time);
             }
+            i++;
+            curr2 = curr2->next;
         }
 
         puts("");
@@ -41,7 +57,7 @@ void process(){
 	    printf("Press Enter to continue.");
         
         getchar();
-        */
+        
     }
 
 }

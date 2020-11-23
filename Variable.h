@@ -29,6 +29,7 @@ struct Node2{
 	int minute;
 	int second;
 	char time_stat[3];
+	int time;
 	Node2 *next;
 } *head2, *tail2, *curr2;
 
@@ -70,7 +71,7 @@ Node *createNode(char type[], char name[], char flavor[], char topping[], double
     temp->next = NULL;
     return temp;
 }
-Node2 *createNode2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[])
+Node2 *createNode2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[], int time)
 { // node history/purchase 
 	Node2 *temp = (Node2*)malloc(sizeof(Node2));
     strcpy(temp->type, type);
@@ -86,6 +87,7 @@ Node2 *createNode2(char type[], char name[], char flavor[], char topping[], doub
 	temp->hours = hours;
 	temp->minute = minute;
 	temp->second = second;
+	temp->time = time;
 	strcpy(temp->time_stat, time_stat);
     temp->next = NULL;
     return temp;
@@ -114,9 +116,9 @@ void pushTail1(char type[], char name[], char flavor[], char topping[], double c
     tail = temp; 
   }
 }
-void pushHead2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[]) // ini buat push history
+void pushHead2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[], int time) // ini buat push history
 { // push history
-    Node2 *temp = createNode2(type, name, flavor, topping, calories, price, size, day, month, year, hours, minute, second, time_stat);
+    Node2 *temp = createNode2(type, name, flavor, topping, calories, price, size, day, month, year, hours, minute, second, time_stat, time);
     if(!head2) 
     {
         head2 = tail2 = temp;
@@ -126,9 +128,9 @@ void pushHead2(char type[], char name[], char flavor[], char topping[], double c
         head2 = temp;
     }
 }
-void pushTail2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[]) // ini buat push history
+void pushTail2(char type[], char name[], char flavor[], char topping[], double calories, int price, char size, int day, int month, int year, int hours, int minute, int second, char time_stat[], int time) // ini buat push history
 { // push history
-    Node2 *temp = createNode2(type, name, flavor, topping, calories, price, size, day, month, year, hours, minute, second, time_stat);
+    Node2 *temp = createNode2(type, name, flavor, topping, calories, price, size, day, month, year, hours, minute, second, time_stat, time);
     if(!head2) 
     {
         head2 = tail2 = temp;
